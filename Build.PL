@@ -22,7 +22,7 @@ my %module_build_args = (
     'Alexis Sukrieh <surkia@sukria.net>'
   ],
   'dist_name' => 'Dancer-Session-Memcached',
-  'dist_version' => '0.200',
+  'dist_version' => '0.201',
   'license' => 'perl',
   'module_name' => 'Dancer::Session::Memcached',
   'recommends' => {},

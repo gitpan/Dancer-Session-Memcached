@@ -32,7 +32,7 @@ my %WriteMakefileArgs = (
     'Dancer::ModuleLoader' => '0',
     'Dancer::Session::Abstract' => '0'
   },
-  'VERSION' => '0.200',
+  'VERSION' => '0.201',
   'test' => {
     'TESTS' => 't/*.t'
   }

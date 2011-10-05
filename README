@@ -2,7 +2,7 @@ NAME
     Dancer::Session::Memcached - Memcached-based session backend for Dancer
 
 VERSION
-    version 0.200
+    version 0.201
 
 DESCRIPTION
     This module implements a session engine based on the Memcache API.

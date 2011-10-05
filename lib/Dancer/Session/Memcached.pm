@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dancer::Session::Memcached;
 BEGIN {
-  $Dancer::Session::Memcached::VERSION = '0.200';
+  $Dancer::Session::Memcached::VERSION = '0.201';
 }
 # ABSTRACT: Memcached-based session backend for Dancer
 
@@ -20,6 +20,8 @@ my $MEMCACHED;
 sub init {
     my $self = shift;
 
+    $self->SUPER::init(@_);
+
     my $servers = setting("memcached_servers");
     die "The setting memcached_servers must be defined"
       unless defined $servers;
@@ -33,8 +35,6 @@ sub init {
     }
 
     $MEMCACHED = Cache::Memcached->new(servers => $servers);
-
-    $self->SUPER::init(@_);
 }
 
 # create a new session and return the newborn object
@@ -77,7 +77,7 @@ Dancer::Session::Memcached - Memcached-based session backend for Dancer
 
 =head1 VERSION
 
-version 0.200
+version 0.201
 
 =head1 DESCRIPTION
 

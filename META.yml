@@ -24,5 +24,5 @@ requires:
   Dancer::ModuleLoader: 0
   Dancer::Session::Abstract: 0
 resources:
-  repository: https://github.com/sukria/Dancer-Session-Memcached.git
-version: 0.200
+  repository: http://github.com/sukria/Dancer-Session-Memcached
+version: 0.201
