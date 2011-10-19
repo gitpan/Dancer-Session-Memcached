@@ -1,13 +1,14 @@
 use strict;
 use warnings;
 package Dancer::Session::Memcached;
-BEGIN {
-  $Dancer::Session::Memcached::VERSION = '0.201';
+{
+  $Dancer::Session::Memcached::VERSION = '0.202';
 }
 # ABSTRACT: Memcached-based session backend for Dancer
 
 use base 'Dancer::Session::Abstract';
 
+use Carp;
 use Cache::Memcached;
 use Dancer::Config 'setting';
 use Dancer::ModuleLoader;
@@ -23,14 +24,14 @@ sub init {
     $self->SUPER::init(@_);
 
     my $servers = setting("memcached_servers");
-    die "The setting memcached_servers must be defined"
+    croak "The setting memcached_servers must be defined"
       unless defined $servers;
     $servers = [split /,/, $servers];
 
     # make sure the servers look good
     foreach my $s (@$servers) {
         if ($s =~ /^\d+\.\d+\.\d+\.\d+$/) {
-            die "server `$s' is invalid; port is missing, use `server:port'";
+            croak "server `$s' is invalid; port is missing, use `server:port'";
         }
     }
 
@@ -77,7 +78,7 @@ Dancer::Session::Memcached - Memcached-based session backend for Dancer
 
 =head1 VERSION
 
-version 0.201
+version 0.202
 
 =head1 DESCRIPTION
 
@@ -108,7 +109,7 @@ See L<Dancer::Session> for details about session usage in route handlers.
 
 =head1 AUTHOR
 
-  Alexis Sukrieh <surkia@sukria.net>
+Alexis Sukrieh <surkia@sukria.net>
 
 =head1 COPYRIGHT AND LICENSE
 
